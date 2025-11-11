@@ -67,6 +67,10 @@ function makeEvilSnakeMove () {
     EvilSnake.setVelocity(EvilSnakeX, EvilSnakeY)
     pause(randint(100, 5000))
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    MainCharacterStatusBar.value += -12.5
+    pause(2000)
+})
 let EvilSnakeX = 0
 let EvilSnakeY = 0
 let MainCharacterStatusBar: StatusBarSprite = null
@@ -77,7 +81,5 @@ defineInitialVariables()
 defineCharacters()
 forever(function () {
     makeEvilSnakeMove()
-})
-forever(function () {
     RewardSystem()
 })
