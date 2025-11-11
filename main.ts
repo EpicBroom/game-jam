@@ -18,11 +18,30 @@ let MainCharacter = sprites.create(img`
     f f f f e b d d f d d f d d f . 
     . f f f f f f f f f f f f f . . 
     `, SpriteKind.Player)
+let EvilSnake = sprites.create(img`
+    . . . . c c c c c c . . . . . . 
+    . . . c 6 7 7 7 7 6 c . . . . . 
+    . . c 7 7 7 7 7 7 7 7 c . . . . 
+    . c 6 7 7 7 7 7 7 7 7 6 c . . . 
+    . c 7 c 6 6 6 6 c 7 7 7 c . . . 
+    . f 7 6 f 6 6 f 6 7 7 7 f . . . 
+    . f 7 7 7 7 7 7 7 7 7 7 f . . . 
+    . . f 7 7 7 7 6 c 7 7 6 f c . . 
+    . . . f c c c c 7 7 6 f 7 7 c . 
+    . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+    . c 7 7 2 7 7 c f c 6 7 7 6 c c 
+    c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+    f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+    f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+    . f 6 1 1 1 1 1 1 6 6 6 f . . . 
+    . . c c c c c c c c c f . . . . 
+    `, SpriteKind.Enemy)
 controller.moveSprite(MainCharacter, 100, 100)
 scene.cameraFollowSprite(MainCharacter)
 tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
+info.setLife(3)
 forever(function () {
-    if (true) {
-    	
+    if (MainCharacter.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
+        info.changeScoreBy(1)
     }
 })
