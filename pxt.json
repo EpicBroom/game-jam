@@ -1,0 +1,28 @@
+{
+    "name": "Game jam",
+    "description": "",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v2.0.61",
+        "tag": "v2.0.61",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/46e1f878ac2b238b3b86f17ea661d738b1395aaa",
+        "target": "2.0.61",
+        "pxt": "11.3.65",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
