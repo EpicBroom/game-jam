@@ -57,6 +57,9 @@ function initialiseWorld () {
     MainCharacterStatusBar.setOffsetPadding(-43, 5)
     MainCharacterStatusBar.positionDirection(CollisionDirection.Bottom)
 }
+statusbars.onZero(StatusBarKind.Health, function (status) {
+    game.gameOver(false)
+})
 function defineInitialVariables () {
     EvilSnakeY = 0
     EvilSnakeX = 0
@@ -69,7 +72,7 @@ function makeEvilSnakeMove () {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     MainCharacterStatusBar.value += -12.5
-    pause(2000)
+    pause(1000)
 })
 let EvilSnakeX = 0
 let EvilSnakeY = 0
