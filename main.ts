@@ -1,3 +1,8 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    MainCharacterStatusBar.value += -12.5
+    pause(2000)
+})
+let MainCharacterStatusBar: StatusBarSprite = null
 game.splash("Use arrow keys to move")
 tiles.setCurrentTilemap(tilemap`level1`)
 let MainCharacter = sprites.create(img`
@@ -36,10 +41,16 @@ let EvilSnake = sprites.create(img`
     . f 6 1 1 1 1 1 1 6 6 6 f . . . 
     . . c c c c c c c c c f . . . . 
     `, SpriteKind.Enemy)
+MainCharacterStatusBar = statusbars.create(60, 10, StatusBarKind.Health)
+MainCharacterStatusBar.setColor(7, 2, 7)
+MainCharacterStatusBar.setStatusBarFlag(StatusBarFlag.SmoothTransition, false)
+MainCharacterStatusBar.setBarBorder(1, 15)
+MainCharacterStatusBar.setOffsetPadding(-43, 5)
+MainCharacterStatusBar.positionDirection(CollisionDirection.Bottom)
 controller.moveSprite(MainCharacter, 100, 100)
 scene.cameraFollowSprite(MainCharacter)
 tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
-info.setLife(3)
+tiles.placeOnTile(EvilSnake, tiles.getTileLocation(11, 10))
 forever(function () {
     if (MainCharacter.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
         info.changeScoreBy(1)

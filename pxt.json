@@ -2,7 +2,8 @@
     "name": "Game jam",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2"
     },
     "files": [
         "main.blocks",
@@ -12,7 +13,8 @@
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
