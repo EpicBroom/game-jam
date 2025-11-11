@@ -1,3 +1,5 @@
+game.splash("Use arrow keys to move")
+tiles.setCurrentTilemap(tilemap`level1`)
 let MainCharacter = sprites.create(img`
     . . . . . . . f f f f f . . . . 
     . . . . . . f e e e e e f . . . 
@@ -16,6 +18,11 @@ let MainCharacter = sprites.create(img`
     f f f f e b d d f d d f d d f . 
     . f f f f f f f f f f f f f . . 
     `, SpriteKind.Player)
-game.onUpdateInterval(500, function () {
-    game.splash("Bro")
+controller.moveSprite(MainCharacter, 100, 100)
+scene.cameraFollowSprite(MainCharacter)
+tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
+forever(function () {
+    if (true) {
+    	
+    }
 })
