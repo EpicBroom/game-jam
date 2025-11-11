@@ -39,6 +39,7 @@ function defineCharacters () {
     controller.moveSprite(MainCharacter, 100, 100)
     scene.cameraFollowSprite(MainCharacter)
     tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
+    tiles.placeOnTile(EvilSnake, tiles.getTileLocation(11, 10))
 }
 function RewardSystem () {
     if (MainCharacter.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
@@ -65,8 +66,8 @@ function defineInitialVariables () {
     EvilSnakeX = 0
 }
 function makeEvilSnakeMove () {
-    EvilSnakeY = randint(-30, 30)
     EvilSnakeX = randint(-30, 30)
+    EvilSnakeY = 0
     EvilSnake.setVelocity(EvilSnakeX, EvilSnakeY)
     pause(randint(100, 5000))
 }
