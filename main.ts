@@ -1,3 +1,6 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    MainCharacter.vy += -100
+})
 function defineCharacters () {
     MainCharacter = sprites.create(img`
         . . . . . . . f f f f f . . . . 
@@ -40,6 +43,7 @@ function defineCharacters () {
     scene.cameraFollowSprite(MainCharacter)
     tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
     tiles.placeOnTile(EvilSnake, tiles.getTileLocation(11, 10))
+    MainCharacter.ay = 320
 }
 function RewardSystem () {
     if (MainCharacter.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
