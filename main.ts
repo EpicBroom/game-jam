@@ -36,12 +36,23 @@ let EvilSnake = sprites.create(img`
     . f 6 1 1 1 1 1 1 6 6 6 f . . . 
     . . c c c c c c c c c f . . . . 
     `, SpriteKind.Enemy)
+let EvilSnakeY = 0
+let EvilSnakeX = 0
 controller.moveSprite(MainCharacter, 100, 100)
 scene.cameraFollowSprite(MainCharacter)
 tiles.placeOnTile(MainCharacter, tiles.getTileLocation(0, 10))
 info.setLife(3)
 forever(function () {
+    EvilSnake.setBounceOnWall(true)
+})
+forever(function () {
     if (MainCharacter.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
         info.changeScoreBy(1)
     }
+})
+forever(function () {
+    EvilSnakeY = randint(-30, 30)
+    EvilSnakeX = randint(-30, 30)
+    EvilSnake.setVelocity(EvilSnakeX, EvilSnakeY)
+    pause(randint(100, 5000))
 })
