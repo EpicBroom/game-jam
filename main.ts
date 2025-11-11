@@ -49,8 +49,13 @@ function RewardSystem () {
 function initialiseWorld () {
     game.splash("Use arrow keys to move")
     tiles.setCurrentTilemap(tilemap`level1`)
-    music.play(music.stringPlayable("D E F E D E F E ", 188), music.PlaybackMode.LoopingInBackground)
-    info.setLife(3)
+    music.play(music.stringPlayable("D E F E D E F E ", 500), music.PlaybackMode.LoopingInBackground)
+    MainCharacterStatusBar = statusbars.create(60, 10, StatusBarKind.Health)
+    MainCharacterStatusBar.setColor(7, 2, 7)
+    MainCharacterStatusBar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
+    MainCharacterStatusBar.setBarBorder(1, 15)
+    MainCharacterStatusBar.setOffsetPadding(-43, 5)
+    MainCharacterStatusBar.positionDirection(CollisionDirection.Bottom)
 }
 function defineInitialVariables () {
     EvilSnakeY = 0
@@ -64,6 +69,7 @@ function makeEvilSnakeMove () {
 }
 let EvilSnakeX = 0
 let EvilSnakeY = 0
+let MainCharacterStatusBar: StatusBarSprite = null
 let EvilSnake: Sprite = null
 let MainCharacter: Sprite = null
 initialiseWorld()
