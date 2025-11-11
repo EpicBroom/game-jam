@@ -49,7 +49,7 @@ function RewardSystem () {
 function initialiseWorld () {
     game.splash("Use arrow keys to move")
     tiles.setCurrentTilemap(tilemap`level1`)
-    music.play(music.stringPlayable("D E F E D E F E ", 188), music.PlaybackMode.LoopingInBackground)
+    music.play(music.stringPlayable("E F G B F D C C5 ", 188), music.PlaybackMode.LoopingInBackground)
     MainCharacterStatusBar = statusbars.create(60, 10, StatusBarKind.Health)
     MainCharacterStatusBar.setColor(7, 2, 7)
     MainCharacterStatusBar.setStatusBarFlag(StatusBarFlag.SmoothTransition, true)
